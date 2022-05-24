@@ -12,17 +12,27 @@ module.exports = {
         filename: 'solo-project-webpack.bundle.js'
     },
     //mode depends on package.json script tags
+    //npm install -D cross-env to set process environment variables properly
     mode: process.env.NODE_ENV,
+    
+    //devServer set up for development mode
     //npm install -D webpack-dev-server
+    //devServer needs capability to send and receive requests from the server so in development mode we need to run BOTH devserver and express
+    //npm install -D concurrently
+    //For dev server to respond instantly to changes in the server side, install nodemon
+    //npm install -D nodemon
     devServer: {
         static: {
           directory: path.join(__dirname),
         },
         proxy: {
         //routers
+        "/task": "http://localhost:3000",
         },
         port: 8080
     },
+
+    //different methods of handling different modules/file types
     module: {
         rules: [
             // Transpile all of js and jsx files
@@ -49,6 +59,6 @@ module.exports = {
     //npm install -D html-webpack-plugin
     plugins: [
         new HtmlWebpackPlugin({
-        template: 'index.html'
+        template: './Front-end/index.html'
       })]
 };

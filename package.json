@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=development ",
-    "start": "NODE_ENV=production node Back-end/server.js"
+    "start": "cross-env NODE_ENV=production node Back-end/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"nodemon Back-end/server.js\""
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,12 @@
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.16.0",
     "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.16",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",
