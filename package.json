@@ -1,0 +1,39 @@
+{
+  "name": "solo-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=development ",
+    "start": "NODE_ENV=production node Back-end/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrychoi1/Solo-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terrychoi1/Solo-Project/issues"
+  },
+  "homepage": "https://github.com/terrychoi1/Solo-Project#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "react": "^18.1.0",
+    "webpack": "^5.72.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.16.0",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
