@@ -18,14 +18,16 @@ mongoose.connect(mongoURI, {
     // sets the name of the DB that our collections are part of
     dbName: 'terryssoloproject'
 })
-  .then(() => console.log('Connected to Mongo DB.'))
-  .catch(err => console.log(err));
+  .then(() => console.log('****************Connected to Mongo DB.****************************************'))
+  .catch(err => console.log('ERROR INNN CONNECTING TO THE DATABASE!!!!!!!!!!!!*******************',err));
 
 //Parse all data for express to handle
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Using router to handle all 4 functionalities
 const taskRouter = require('./routes/taskRouter');
+const { urlencoded } = require('express');
 
 //Declaring port number for easy view
 const PORT = 3000;
@@ -45,7 +47,7 @@ app.use('/task', taskRouter);
 
 //Catch all error handler
 app.use((req,res)=>{
-    return res.status(404).header('text/html').sendFile(path.resolve(__dirname,'../Front-end/404.html'));
+    return res.status(404).send('You in the wrong place')  /*header('text/html').sendFile(path.resolve(__dirname,'../Front-end/404.html'));*/
 });
 
 //Global error handler
@@ -54,7 +56,7 @@ app.use((err, req, res, next)=>{
     const defaultError = {
         status: 400,
         log: 'Global Error handler activated',
-        message: 'You done goofed in the global'
+        message: 'You made an error in the global'
     };
     //Overwrite the default error with the incoming error
     const finalError = Object.assign(defaultError, err);

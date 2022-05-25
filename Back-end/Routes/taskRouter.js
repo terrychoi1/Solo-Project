@@ -4,23 +4,30 @@ const express = require('express');
 const router = express.Router();
 //Import the taskController to handle the requests
 const taskController = require('../Controllers/taskController');
-//Require path for directory and file
-const path = require('path');
 
-router.get('/', taskController.getTasks, (req,res)=>{
-    return res.status(200).end();
+
+router.get('/uncompleted', taskController.getTaskUncompleted, (req,res)=>{
+    return res.status(200).send(res.locals.uncompletedTasks);
 });
 
-router.post('/', taskController.postTasks, (req,res)=> {
-    return res.status(200).end();
+router.get('/completed', taskController.getTaskCompleted, (req,res)=>{
+    return res.status(200).send(res.locals.completedTasks);
 });
 
-router.update('/', taskController.updateTasks, (req,res)=> {
-    return res.status(200).end();
+router.post('/', taskController.createTask, (req,res)=> {
+    return res.status(200).send(res.locals.newTaskList);
 });
 
-router.delete('/', taskController.deleteTasks, (req,res)=> {
-    return res.status(200).end();
+router.put('/:id', taskController.updateTask, (req,res)=> {
+    return res.status(200).send(res.locals.updatedUncompletedTaskList);
+});
+
+router.patch('/:id', taskController.completedTask, (req,res)=> {
+    return res.status(200).send(res.locals.updatedCompletedTaskList);
+});
+
+router.delete('/:id', taskController.deleteTask, (req,res)=> {
+    return res.status(200).send('Task Deleted');
 });
 
 //Export as a router
