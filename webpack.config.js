@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // The entry point
     entry: './Front-end/index.js',
+    // Output location after webpack transpiles everything
     output: {
         path: path.resolve(__dirname, 'Product'),
         filename: 'solo-project-webpack.bundle.js'
@@ -21,6 +22,7 @@ module.exports = {
     //npm install -D concurrently
     //For dev server to respond instantly to changes in the server side, install nodemon
     //npm install -D nodemon
+    //npm install -D webpack-cli
     devServer: {
         static: {
           directory: path.join(__dirname),
