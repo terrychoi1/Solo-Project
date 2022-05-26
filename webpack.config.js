@@ -40,7 +40,7 @@ module.exports = {
             // Transpile all of js and jsx files
             // npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react
             {
-                test: /\.jsx?/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',

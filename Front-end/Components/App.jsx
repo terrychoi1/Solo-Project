@@ -1,8 +1,11 @@
+//Importing react for front-end
 import React from 'react';
+//Importing components for the application
+import TotalUncompletedTasks from './TotalUncompletedTasks'
 
 const App = () => (
   <div>
-    <p> Hello World</p>
+    < TotalUncompletedTasks />
   </div>
 );
 
