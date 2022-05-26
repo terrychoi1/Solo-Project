@@ -7,6 +7,23 @@ const taskController = {};
 
 //Methods
 //Get Method for displaying tasks that are uncompleted that are in the db
+taskController.getAllTasks = async (req, res, next) => {
+    try{
+        //find method to find all documents in the db
+        const tasks = await Task.find({ });/* , (err, task) => {if (err) throw new Error('Error in creating task in db')});*/
+        res.locals.allTasks = tasks;
+        return next();
+    }
+    catch(err){
+        return next({
+            status: 401,
+            log: 'taskController.getTask error!!',
+            message: 'You made an error in the taskController.getTask'
+        })
+    };
+};
+
+//Get Method for displaying tasks that are uncompleted that are in the db
 taskController.getTaskUncompleted = async (req, res, next) => {
     try{
         //find method to find all documents in the db

@@ -5,6 +5,9 @@ const router = express.Router();
 //Import the taskController to handle the requests
 const taskController = require('../Controllers/taskController');
 
+router.get('/', taskController.getAllTasks, (req,res)=>{
+    return res.status(200).send(res.locals.allTasks);
+});
 
 router.get('/uncompleted', taskController.getTaskUncompleted, (req,res)=>{
     return res.status(200).send(res.locals.uncompletedTasks);
